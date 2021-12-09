@@ -17,6 +17,9 @@
         <div class="pull-right">
             <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Data </a>
         </div>
+        <div class="pull-right">
+            <a class="btn btn-danger" href="/products/export/"> Export Data </a>
+        </div>
     </div>
 </div>
 <div class="mx-auto">
@@ -98,7 +101,6 @@
             @else ($product->no_vaksin_cov == "")
             <a class="btn btn-warning">Belum Vaksin</a>
             @endif
-            <td><a href="/products/export/">Export</a></td>
         </td>
     </tr>
     @endforeach
