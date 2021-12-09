@@ -183,9 +183,6 @@
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">Update</button>
                             </div>
-                            <div>
-                            <td><a href="{{action('ProductController@export')}}">Export</a></td>
-                            </div>
                         </div>
                 </div>
             </div>
