@@ -48,7 +48,7 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label>RFID NUMBER :</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Enter RFID Number" required>
+                                    <input type="text" class="form-control" name="name" value="{{ route('products.index')  }}"  placeholder="Enter RFID Number" required>
                                 </div>
                             </div>
                             <hr>
