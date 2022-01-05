@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Dashboard RFID</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- <meta http-equiv="refresh" content="10; url=http://localhost:8000/scan?term=0110"> -->
+    <title>Dashboard Asset</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/create-admin.css">
 </head>
-<body>
-  
-<div class="container">
-    @yield('content')
-</div>
-   
+
+<body class="font-sans antialiased">
+    <div class="min-h-screen bg-gray-100">
+            <!-- Page Content -->
+            <div class="container">
+                @yield('content')
+            </div>
+    </div>
 </body>
 </html>
