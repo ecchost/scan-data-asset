@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('welcome') }}">
-                    <img src="https://upload.wikimedia.org/wikipedia/id/0/0a/Pelindo_IV.svg" width="100">
+                    <img src="/image/logo-pelindo.png" width="100">
                     </a>
                 </div>
 
