@@ -72,11 +72,12 @@
                                     <input type="text" class="form-control" value="{{ $product->btpakai }}" name="btpakai" placeholder="{{ $product->btpakai }}">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6">
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6" style="margin-bottom: -50px">
                             <div class="form-group">
                                 <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->gb_asset }}">
-                                <img src="/image/active.png" width="30%" height="30%" alt="Maxwell Admin">
-                                <img src="/image/assetname.png" width="2000px" height="3000px" alt="Maxwell Admin">
+                                <h6 class="my-div2 text-white">Aktif</h6>
+                                <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->name }}">
+                                <h6 class="my-div text-white">{{ $product->fullname }}</h6>
                             </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="margin-top: -100px">
