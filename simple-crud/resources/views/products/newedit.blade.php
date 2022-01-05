@@ -74,7 +74,6 @@
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6" style="margin-bottom: -50px">
                             <div class="form-group">
-                                <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->gb_asset }}">
                                 <h6 class="my-div2 text-white">Aktif</h6>
                                 <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->name }}">
                                 <h6 class="my-div text-white">{{ $product->fullname }}</h6>
