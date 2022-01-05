@@ -79,7 +79,7 @@
                                 <img src="/image/assetname.png" width="2000px" height="3000px" alt="Maxwell Admin">
                             </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" style="margin-top: -100px">
                                 <div class="form-group">
                                     <label>KETERANGAN TAMBAHAN :</label>
                                     <input id="keterangan_tambahan" type="hidden" placeholder="{{ $product->keterangan_tambahan }}" value="{{ $product->keterangan_tambahan }}" name="keterangan_tambahan">
