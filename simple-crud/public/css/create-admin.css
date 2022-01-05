@@ -6,6 +6,17 @@ body {
     position: relative;
     height: 100%;
 }
+.asset-border{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 .account-settings .user-profile {
     margin: 0 0 1rem 0;
     padding-bottom: 1rem;
@@ -58,4 +69,21 @@ body {
     border-radius: 5px;
     border: 0;
     margin-bottom: 1rem;
+}
+.my-div{
+    background-color: #30b6e5;
+    text-align: center;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 25px;
+    width: 190px;
+}
+.my-div2{
+    background-color: #0871b3;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-bottom: 0px;
+    height: 25px;
+    width: 190px;
 }

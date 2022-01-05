@@ -18,3 +18,20 @@ body{
 .me-2 {
     margin-right: .5rem!important;
 }
+.my-div{
+    background-color: #30b6e5;
+    text-align: center;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    height: 25px;
+    width: 200px;
+}
+.my-div2{
+    background-color: #0871b3;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-bottom: 0px;
+    height: 25px;
+    width: 200px;
+}
