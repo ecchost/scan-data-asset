@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
    
 use App\Models\Product;
+use App\Models\Divisi;
 use Illuminate\Http\Request;
 use DB;
 use App\Exports\ProductExport;
@@ -32,51 +33,35 @@ class ProductController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
      
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(Request $request)
     {
+        $divisi = Divisi::all();
         // return view('products.create');
-        return view('products.newcreate');
+        return view('products.newcreate', compact('divisi'));
     }
     
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required',
             'fullname' => 'required',
-            'jenis_asset' => 'required',
-            'nilai_asset' => 'required',
-            'first_condition' => 'required',
-            'last_condition' => 'required',
-            'keterangan_tambahan' => 'required',
-            'divisi' => 'required',
-            // 'area_a' => 'required',
-            // 'area_b' => 'required',
-            // 'area_c' => 'required',
-            // 'area_d' => 'required',
-            // 'area_e' => 'required',
-            // 'area_f' => 'required',
-            // 'area_g' => 'required',
-            'btpakai' => 'required',
-            // 'no_id' => 'required',
+            'divisi_id' => 'required',
+            'jabatan' => 'required',
+            'pengguna' => 'required',
+            'printer' => 'required',
+            'sn' => 'required',
+            'os' => 'required',
+            'ip' => 'required',
+            'mac_address' => 'required',
+            'monitor' => 'required',
+            'hdd' => 'required',
+            'ssd' => 'required',
+            'spesifikasi' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'gb_asset' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'exp_date' => 'required|date',
-            // 'card_status' => 'required',
-            // 'dosis_satu_cov' => 'required',
-            // 'dosis_dua_cov' => 'required',
         ]);
-
         $input = $request->all();
 
         if ($image = $request->file('image')) {
@@ -101,49 +86,40 @@ class ProductController extends Controller
             return redirect()->route('products.index')->with('success','Product created successfully.');     
     }
      
-    /**
-     * Display the specified resource.*/
+
     public function show(Product $product)
     {
-        return view('products.show',compact('product'));
+        $divisi = Divisi::all();
+        return view('products.show',compact('product','divisi'));
     } 
      
-    /**
-     * Show the form for editing the specified resource.*/
+
     public function edit(Product $product)
     {
+        $divisi = Divisi::all();
         // return view('products.edit',compact('product'));
-        return view('products.newedit',compact('product'));
+        return view('products.newedit',compact('product','divisi'));
     }
     
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, Product $product)
     {
         $request->validate([
             'name' => 'required',
             'fullname' => 'required',
-            'jenis_asset' => 'required',
-            'nilai_asset' => 'required',
-            'first_condition' => 'required',
-            'last_condition' => 'required',
-            'keterangan_tambahan' => 'required',
-            'divisi' => 'required',
-            
-            // 'area_a' => 'required',
-            // 'area_b' => 'required',
-            // 'area_c' => 'required',
-            // 'area_d' => 'required',
-            // 'area_e' => 'required',
-            // 'area_f' => 'required',
-            // 'area_g' => 'required',
-            'btpakai' => 'required',
-            // 'no_id' => 'required',
-            'exp_date' => 'required',
-            // 'card_status' => 'required',
-            // 'dosis_satu_cov' => 'required',
-            // 'dosis_dua_cov' => 'required',
+            'divisi_id' => 'required',
+            'jabatan' => 'required',
+            'pengguna' => 'required',
+            'asset_condition' => 'required',
+            'printer' => 'required',
+            'sn' => 'required',
+            'os' => 'required',
+            'ip' => 'required',
+            'mac_address' => 'required',
+            'monitor' => 'required',
+            'hdd' => 'required',
+            'ssd' => 'required',
+            'spesifikasi' => 'required',
         ]);
         
 
@@ -169,8 +145,6 @@ class ProductController extends Controller
                         ->with('success','Data updated successfully');
     }
     
-    /**
-     * Remove the specified resource from storage.*/
     public function destroy(Product $product)
     {
         $product->delete();

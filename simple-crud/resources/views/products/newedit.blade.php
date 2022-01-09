@@ -4,7 +4,7 @@
 <div class="backgroud">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create Data</h2>
+            <h2>Update Data</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
@@ -22,7 +22,7 @@
     </div>
   @endif
 
-  <form  action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
+    <form  action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
         <div class="container">
@@ -38,53 +38,82 @@
                             </div>
                             <div class="col-auto">
                                 <div class="form-group">
-                                    <label>KATEGORI ASSET :</label>
+                                    <label>DIVISI :</label>
+                                    <select id="divisi_id" class="form-control custom-select">
+                                        <option selected disabled>Select one</option>
+                                        @foreach ($divisi as $item )
+                                        <option value="{{ $item->id }}" {{ old('divisi_id', $product->divisi_id) == $item->id ? 'selected' : null }}>{{ $item->nama_divisi }}</option>
+                                        @endforeach
+                                      </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>JABATAN :</label>
+                                    <input type="text" class="form-control" value="{{ $product->jabatan }}" name="jabatan" placeholder="{{ $product->jabatan }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>COMPUTER TYPE :</label>
                                     <input type="text" class="form-control" value="{{ $product->fullname }}" name="fullname" placeholder="{{ $product->fullname }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>NILAI ASSET :</label>
-                                    <input type="text" class="form-control" value="{{ $product->nilai_asset }}" name="nilai_asset" placeholder="{{ $product->nilai_asset }}">
+                                    <label>KONDISI ASSET :</label>
+                                    <input type="text" class="form-control" value="{{ $product->asset_condition }}" name="asset_condition" placeholder="{{ $product->asset_condition }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>KONDISI AWAL ASSET :</label>
-                                    <input type="text" class="form-control" value="{{ $product->first_condition }}" name="first_condition" placeholder="{{ $product->first_condition }}">
+                                    <label>OS :</label>
+                                    <input type="text" class="form-control" value="{{ $product->os }}" name="os" placeholder="{{ $product->os }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>KONDISI SAAT INI :</label>
-                                    <input type="text" class="form-control" value="{{ $product->last_condition }}" name="last_condition" placeholder="{{ $product->last_condition }}">
+                                    <label>IP :</label>
+                                    <input maxlength="17" type="text" class="form-control" value="{{ $product->ip }}" name="ip" placeholder="{{ $product->ip }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mac Address :</label>
+                                    <input maxlength="20" type="text" class="form-control" value="{{ $product->mac_address }}" name="mac_address" placeholder="{{ $product->mac_address }}">
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6">  
+                            <div class="col-auto">
                                 <div class="form-group">
-                                    <label>JENIS ASSET :</label>
-                                    <input type="text" class="form-control" value="{{ $product->jenis_asset }}" name="jenis_asset" placeholder="{{ $product->jenis_asset }}">
+                                    <label>USER :</label>
+                                    <input type="text" class="form-control" value="{{ $product->pengguna }}" name="pengguna" placeholder="{{ $product->pengguna }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Divisi :</label>
-                                    <input type="text" class="form-control" value="{{ $product->divisi }}" name="divisi" placeholder="{{ $product->divisi }}">
+                                    <label>Spesifikasi :</label>
+                                    <input type="text" class="form-control" value="{{ $product->spesifikasi }}" name="spesifikasi" placeholder="{{ $product->spesifikasi }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>TANGGAL TERIMA ASSET :</label>
-                                    <input type="date" class="form-control" value="{{ $product->exp_date}}"name="exp_date" placeholder="{{$product->exp_date}}">
+                                    <label>PRINTER :</label>
+                                    <input type="text" class="form-control" value="{{ $product->printer }}" name="printer" placeholder="{{ $product->printer }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>BATAS PAKAI :</label>
-                                    <input type="text" class="form-control" value="{{ $product->btpakai }}" name="btpakai" placeholder="{{ $product->btpakai }}">
+                                    <label>SN :</label>
+                                    <input type="text" class="form-control" value="{{ $product->sn }}" name="sn" placeholder="{{ $product->sn }}">
                                 </div>
+                                <div class="form-group">
+                                    <label>MONITOR :</label>
+                                    <input type="text" class="form-control" value="{{ $product->monitor }}" name="monitor" placeholder="{{ $product->monitor }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>HDD :</label>
+                                    <input maxlength="5" type="text" class="form-control" value="{{ $product->hdd }}" name="hdd" placeholder="{{ $product->hdd }}">
+                                </div>
+                                <div class="form-group">
+                                    <label>SSD :</label>
+                                    <input maxlength="5" type="text" class="form-control" value="{{ $product->ssd }}" name="ssd" placeholder="{{ $product->ssd }}">
+                                </div>  
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6" style="margin-bottom: -50px">
-                            <div class="form-group">
-                                <h6 class="my-div2 text-white">Aktif</h6>
-                                <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->name }}">
-                                <h6 class="my-div text-white">{{ $product->fullname }}</h6>
-                            </div>
+                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6" style="margin-bottom: -50px">
+                                <div class="form-group">
+                                    <h6 class="my-div2 text-white">{{ $product->asset_condition }}</h6>
+                                    <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->name }}">
+                                    <h6 class="my-div text-white">{{ $product->fullname }}</h6>
+                                </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>KETERANGAN TAMBAHAN :</label>
                                     <input id="keterangan_tambahan" type="hidden" placeholder="{{ $product->keterangan_tambahan }}" value="{{ $product->keterangan_tambahan }}" name="keterangan_tambahan">
                                     <trix-editor input="keterangan_tambahan"></trix-editor>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                 <label>RFID NUMBER :</label>
                                 <input type="text" class="form-control" value="{{ $product->name }}" name="name" placeholder="{{ $product->name }}">
@@ -106,10 +135,10 @@
                         </div>
                         </div>
                         <div class="col-xs-7 col-sm-7 col-md-7 text-center">
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="submit" class="btn btn-warning">Update</button>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 @endsection
