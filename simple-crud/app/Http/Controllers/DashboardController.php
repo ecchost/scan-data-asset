@@ -35,28 +35,6 @@ class DashboardController extends Controller
                     $query->orWhere('name', 'LIKE', '%' . $term . '%')->orWhere('no_id', 'LIKE', '%' . $term . '%')->orWhere('fullname', 'LIKE', '%' . $term . '%')->get();
                 }
             }],
-            [function ($query) use ($request) {
-                if (($area_id = $request->area_id)) {
-                    if (($area_id == 'area_a')) {
-                        $query->where('area_a', '=', '1')->get();
-                    } else if (($area_id == 'area_b')) {
-                        $query->where('area_b', '=', '1')->get();
-                    } else if (($area_id == 'area_c')) {
-                        $query->where('area_c', '=', '1')->get();
-                    } else if (($area_id == 'area_d')) {
-                        $query->where('area_d', '=', '1')->get();
-                    } else if (($area_id == 'area_e')) {
-                        $query->where('area_e', '=', '1')->get();
-                    } else if (($area_id == 'area_f')) {
-                        $query->where('area_f', '=', '1')->get();
-                    } else if (($area_id == 'area_g')) {
-                        $query->where('area_g', '=', '1')->get();
-                    }
-                }
-            }],
-            [function ($query) use ($datetoday){
-                $query->whereDate('exp_date','>=', $datetoday)->get();
-            }]
         ])->orderBy("id", "desc")->paginate(1);
 
         $c = count($products);
