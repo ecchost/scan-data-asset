@@ -16,7 +16,9 @@
 <div class="container">
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
         <div class="form-group">
-            <img src="/image/{{ $product->image }}" width="200px" alt="Maxwell Admin">
+            <h6 class="my-div2 text-white">{{ $product->asset_condition }}</h6>
+            <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->name }}">
+            <h6 class="my-div text-white">{{ $product->fullname }}</h6>
             <br>
             <div class="mb-3">{!! DNS2D::getBarcodeHTML($product->name, 'QRCODE',7,7) !!}</div>
         </div>
@@ -54,14 +56,7 @@
                         {{ $product->name }}
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6" style="margin-bottom: -50px">
-                    <div class="form-group">
-                        <h6 class="my-div2 text-white">{{ $product->asset_condition }}</h6>
-                        <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->name }}">
-                        <h6 class="my-div text-white">{{ $product->fullname }}</h6>
-                    </div>
-                </div>
-                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-6" style="margin-top: -50px">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-6">
                     <div class="form-group">
                         <h6><label>KETERANGAN TAMBAHAN :</label></h6>
                         <label style="margin-left: 20px"> SN :</label> {{ $product->sn }} <br>
