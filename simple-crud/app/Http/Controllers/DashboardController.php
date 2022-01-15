@@ -47,7 +47,7 @@ class DashboardController extends Controller
                 ['name', '!=', Null],
                 [function ($query) use ($ninuzero) {
                     if (($ninuzero = $ninuzero)) {
-                        $query->orWhere('name', 'LIKE', '%' . $ninuzero . '%')->orWhere('fullname', 'LIKE', '%' . $term . '%')->get();
+                        $query->orWhere('name', 'LIKE', '%' . $ninuzero . '%')->orWhere('fullname', 'LIKE', '%' . $ninuzero . '%')->get();
                     }
                 }]
             ])->orderBy("id", "desc")->paginate(1);
