@@ -44,7 +44,7 @@
     @foreach ($products as $product)
     <tr>
         <td>{{ ++$i }}</td>
-        <td>{{ $product->fullname }} <br>{{ $product->divisi->nama_divisi }}</td>
+        <td>{{ $product->fullname }} <br>{{ $product->divisi->nama_divisi }}<br>{{ $product->kategori->nama_kategori }}</td>
         <td>{!! DNS2D::getBarcodeSVG($product->name, 'QRCODE',5,5) !!}</td>
         <td class="justify-center">
             <form action="{{ route('products.destroy',$product->id) }}" method="POST">

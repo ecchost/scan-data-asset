@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
    
 use App\Models\Product;
 use App\Models\Divisi;
-use App\Models\kATEGORI;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 use DB;
 use App\Exports\ProductExport;
