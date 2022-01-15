@@ -56,7 +56,7 @@
             <br>
             <div class="row">
                 <div class="col-lg justify-center" align="center">
-                    <a class="btn btn-primary btn-lg" href="/scan?term=0110">Scan Data Asset</a>
+                    <a class="btn btn-primary btn-lg" href="/scan">Scan Data Asset</a>
                     @if(Auth::user()->user_level == "admin")
                     <a class="btn btn-secondary btn-lg" href="/products">Admin Data</a>
                     @endif
