@@ -22,6 +22,14 @@
                 </div>
             </form>
         </div>
+        <div class="pull-right">
+            <select name="kategori" id="kategori" class="form-control custom-select">
+                <option value="">Pilih Kategori</option>
+                @foreach ($kategori as $kategori )
+                <option> {{ $kategori->nama_kategori }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 </div>
 
