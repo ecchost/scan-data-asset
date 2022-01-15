@@ -54,12 +54,8 @@
                                 <input type="text" class="form-control"  id="asset_condition" name="asset_condition" placeholder="Enter Kondisi Saat Ini" required>
                             </div>
                             <div class="form-group">
-                                <label for="name">RFID NUMBER :</label>
+                                <label for="name">Barcode Link :</label>
                                 <input type="text" class="form-control" value="{{ route('products.index') }}/" name="name" id="name" placeholder="Enter RFID Number" required>
-                            </div>
-                            <div class="form-group">
-                                <strong>Image User : </strong>
-                                <input type="file" class="form-control" name="image" placeholder="Input Image" required>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6">

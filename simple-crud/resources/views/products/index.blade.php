@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="pull-left">
-        <h2>Data RFID Card</h2>
+        <h2>Data Asset</h2>
     </div>
     <br>
     <div class="col-lg-12 margin-tb">

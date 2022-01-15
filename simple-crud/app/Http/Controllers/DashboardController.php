@@ -32,7 +32,7 @@ class DashboardController extends Controller
             ['name', '!=', Null],
             [function ($query) use ($request) {
                 if (($term = $request->term)) {
-                    $query->orWhere('name', 'LIKE', '%' . $term . '%')->orWhere('no_id', 'LIKE', '%' . $term . '%')->orWhere('fullname', 'LIKE', '%' . $term . '%')->get();
+                    $query->orWhere('name', 'LIKE', '%' . $term . '%')->orWhere('fullname', 'LIKE', '%' . $term . '%')->get();
                 }
             }],
         ])->orderBy("id", "desc")->paginate(1);
@@ -47,7 +47,7 @@ class DashboardController extends Controller
                 ['name', '!=', Null],
                 [function ($query) use ($ninuzero) {
                     if (($ninuzero = $ninuzero)) {
-                        $query->orWhere('name', 'LIKE', '%' . $ninuzero . '%')->orWhere('no_id', 'LIKE', '%' . $ninuzero . '%')->get();
+                        $query->orWhere('name', 'LIKE', '%' . $ninuzero . '%')->orWhere('fullname', 'LIKE', '%' . $term . '%')->get();
                     }
                 }]
             ])->orderBy("id", "desc")->paginate(1);

@@ -27,7 +27,9 @@
     @method('PUT')
         <div class="container">
                 <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-                    <img src="/image/{{ $product->image }}" width="200px" alt="Maxwell Admin">
+                    <h6 class="my-div2 text-white">{{ $product->asset_condition }}</h6>
+                    <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->name }}">
+                    <h6 class="my-div text-white">{{ $product->fullname }}</h6>
                     <br>
                     <div class="mb-3">{!! DNS2D::getBarcodeSVG($product->name, 'QRCODE',7,7) !!}</div>                    
                 </div>
@@ -115,18 +117,12 @@
                                     <trix-editor input="keterangan_tambahan"></trix-editor>
                                 </div> --}}
                                 <div class="form-group">
-                                <label>RFID NUMBER :</label>
+                                <label>Barcode Link :</label>
                                 <input type="text" class="form-control" value="{{ $product->name }}" name="name" placeholder="{{ $product->name }}">
                             </div>
                             </div>
                         </div>
                         <div class="row gutters">                        
-                            <div class="col-xs-4 col-sm-4 col-md-4">
-                                <div class="form-group">
-                                    <strong>Image User : </strong>
-                                    <input type="file" name="image" class="form-control" placeholder="image"><br>
-                                </div>
-                            </div>
                             <div class="col-xs-4 col-sm-4 col-md-4">
                             <div class="form-group">
                                 <strong>Image Asset : </strong>
