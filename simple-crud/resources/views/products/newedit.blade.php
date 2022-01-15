@@ -103,13 +103,6 @@
                                     <input maxlength="5" type="text" class="form-control" value="{{ $product->ssd }}" name="ssd" placeholder="{{ $product->ssd }}">
                                 </div>  
                             </div>
-                            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6" style="margin-bottom: -50px">
-                                <div class="form-group">
-                                    <h6 class="my-div2 text-white">{{ $product->asset_condition }}</h6>
-                                    <img src="/image/{{ $product->gb_asset }}" width="200px" alt="Gambar Asset" title="{{ $product->name }}">
-                                    <h6 class="my-div text-white">{{ $product->fullname }}</h6>
-                                </div>
-                            </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 {{-- <div class="form-group">
                                     <label>KETERANGAN TAMBAHAN :</label>
