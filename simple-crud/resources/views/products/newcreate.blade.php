@@ -41,6 +41,15 @@
                                   @endforeach
                                 </select>
                               </div>
+                              <div class="form-group">
+                                <label for="kategori_id">Kategori</label>
+                                <select name="kategori_id" class="form-control custom-select">
+                                  <option selected disabled>Pilih Kategori</option>
+                                  @foreach ($kategori as $item )
+                                  <option value="{{ $item->id }}" {{ old('kategori_id') == $item->id ? 'selected' : null }}>{{ $item->nama_kategori }}</option>
+                                  @endforeach
+                                </select>
+                              </div>
                             <div class="form-group">
                                 <label>JABATAN :</label>
                                 <input type="text" class="form-control" name="jabatan" placeholder="Enter Jabatan" required>

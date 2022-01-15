@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
    
 use App\Models\Product;
 use App\Models\Divisi;
+use App\Models\kATEGORI;
 use Illuminate\Http\Request;
 use DB;
 use App\Exports\ProductExport;
@@ -37,8 +38,9 @@ class ProductController extends Controller
     public function create(Request $request)
     {
         $divisi = Divisi::all();
+        $kategori = Kategori::all();
         // return view('products.create');
-        return view('products.newcreate', compact('divisi'));
+        return view('products.newcreate', compact('divisi','kategori'));
     }
     
     
@@ -48,6 +50,7 @@ class ProductController extends Controller
             'name' => 'required',
             'fullname' => 'required',
             'divisi_id' => 'required',
+            'kategori_id' => 'required',
             'jabatan' => 'required',
             'pengguna' => 'required',
             'printer' => 'required',
@@ -89,8 +92,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $divisi = Divisi::all();
+        $kategori = Kategori::all();
         // return view('products.edit',compact('product'));
-        return view('products.newedit',compact('product','divisi'));
+        return view('products.newedit',compact('product','divisi','kategori'));
     }
     
 
@@ -100,6 +104,7 @@ class ProductController extends Controller
             'name' => 'required',
             'fullname' => 'required',
             'divisi_id' => 'required',
+            'kategori_id' => 'required',
             'jabatan' => 'required',
             'pengguna' => 'required',
             'asset_condition' => 'required',

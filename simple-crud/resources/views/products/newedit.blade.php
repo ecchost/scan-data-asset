@@ -49,6 +49,15 @@
                                       </select>
                                 </div>
                                 <div class="form-group">
+                                    <label>KATEGORI :</label>
+                                    <select id="kategori_id" class="form-control custom-select">
+                                        <option selected disabled>Select one</option>
+                                        @foreach ($kategori as $item )
+                                        <option value="{{ $item->id }}" {{ old('kategori_id', $product->kategori_id) == $item->id ? 'selected' : null }}>{{ $item->nama_kategori }}</option>
+                                        @endforeach
+                                      </select>
+                                </div>
+                                <div class="form-group">
                                     <label>JABATAN :</label>
                                     <input type="text" class="form-control" value="{{ $product->jabatan }}" name="jabatan" placeholder="{{ $product->jabatan }}">
                                 </div>

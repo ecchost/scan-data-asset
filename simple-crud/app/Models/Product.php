@@ -14,4 +14,7 @@ class Product extends Model
     public function divisi(){
         return $this->belongsTo('App\Models\Divisi');
     }
+    public function kategori(){
+        return $this->belongsTo('App\Models\Kategori');
+    }
 }
