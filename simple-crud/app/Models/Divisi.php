@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Divisi extends Model
 {
     use HasFactory;
-    // protected $guarded = ['id']; 
-    protected $fillable = ['name_divisi'];
+    protected $guarded = ['id']; 
+    // protected $fillable = ['nama_divisi'];
 }
