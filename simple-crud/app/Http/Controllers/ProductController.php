@@ -59,17 +59,9 @@ class ProductController extends Controller
             'hdd' => 'required',
             'ssd' => 'required',
             'spesifikasi' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'gb_asset' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $input = $request->all();
-
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
-        }
 
         if ($image = $request->file('gb_asset')) {
             $destinationPath = 'image/';
@@ -124,13 +116,8 @@ class ProductController extends Controller
         
 
         $input = $request->all();
-  
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
-        }elseif($image = $request->file('gb_asset')){
+        
+        if($image = $request->file('gb_asset')){
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
