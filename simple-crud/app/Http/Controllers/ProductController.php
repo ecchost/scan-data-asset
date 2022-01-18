@@ -21,7 +21,7 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-        $kategori = Kategori::all();
+        $kategoris = Kategori::all();
         $products = Product::where([
             ['name', '!=', Null],
             [function ($query) use ($request){
@@ -31,7 +31,7 @@ class ProductController extends Controller
             }]
         ])->orderBy("id", "desc")->paginate(15);
     
-        return view('products.index',compact('products','kategori')) 
+        return view('products.index',compact('products','kategoris')) 
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
      
