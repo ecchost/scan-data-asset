@@ -1,11 +1,12 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-        <img src="https://inaport4.co.id/wp-content/uploads/2021/02/pelindo4-pusat_black-300x124.png">
+            <img src="/image/logo-pelindo.png" width="400">
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
 
+        <p>Anda Harus Login Sebagai Admin Untuk Mendaftarkan Akun</p>
         <!-- <form method="POST" action="{{ route('register') }}">
             @csrf
 
@@ -37,9 +38,9 @@
 
                             <div class="ml-2">
                                 {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
+    'terms_of_service' => '<a target="_blank" href="' . route('terms.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Terms of Service') . '</a>',
+    'privacy_policy' => '<a target="_blank" href="' . route('policy.show') . '" class="underline text-sm text-gray-600 hover:text-gray-900">' . __('Privacy Policy') . '</a>',
+]) !!}
                             </div>
                         </div>
                     </x-jet-label>
