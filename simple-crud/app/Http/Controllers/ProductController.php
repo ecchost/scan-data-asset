@@ -1,7 +1,7 @@
 <?php
-  
+
 namespace App\Http\Controllers;
-   
+
 use App\Models\Product;
 use App\Models\Divisi;
 use App\Models\Kategori;
@@ -10,7 +10,7 @@ use DB;
 use App\Exports\ProductExport;
 use Maatwebsite\Excel\Facades\Excel;
 
-  
+
 class ProductController extends Controller
 {
     public function __construct()
@@ -24,27 +24,27 @@ class ProductController extends Controller
         $kategoris = Kategori::all();
         $products = Product::where([
             ['name', '!=', Null],
-            [function ($query) use ($request){
-                if(($term = $request->term)) {
-                    $query->orWhere('name', 'LIKE', '%'. $term . '%')->orWhere('fullname', 'LIKE', '%'. $term . '%')->get();
+            [function ($query) use ($request) {
+                if (($term = $request->term)) {
+                    $query->orWhere('name', 'LIKE', '%' . $term . '%')->orWhere('fullname', 'LIKE', '%' . $term . '%')->get();
                 }
             }]
         ])->orderBy("id", "desc")->paginate(15);
-    
-        return view('products.index',compact('products','kategoris')) 
+
+        return view('products.index', compact('products', 'kategoris'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-     
+
 
     public function create(Request $request)
     {
         $divisi = Divisi::all();
         $kategori = Kategori::all();
         // return view('products.create');
-        return view('products.newcreate', compact('divisi','kategori'));
+        return view('products.newcreate', compact('divisi', 'kategori'));
     }
-    
-    
+
+
     public function store(Request $request)
     {
         $request->validate([
@@ -74,30 +74,30 @@ class ProductController extends Controller
             $input['gb_asset'] = "$profileImage";
         }
 
-        
+
         Product::create($input);
 
         // Product::create($request->all());
-           
-            return redirect()->route('products.index')->with('success','Product created successfully.');     
+
+        return redirect()->route('products.index')->with('success', 'Product created successfully.');
     }
-     
+
 
     public function show(Product $product)
     {
         $divisi = Divisi::all();
-        return view('products.show',compact('product','divisi'));
-    } 
-     
+        return view('products.show', compact('product', 'divisi'));
+    }
+
 
     public function edit(Product $product)
     {
         $divisi = Divisi::all();
         $kategori = Kategori::all();
         // return view('products.edit',compact('product'));
-        return view('products.newedit',compact('product','divisi','kategori'));
+        return view('products.newedit', compact('product', 'divisi', 'kategori'));
     }
-    
+
 
     public function update(Request $request, Product $product)
     {
@@ -119,46 +119,52 @@ class ProductController extends Controller
             'ssd' => 'required',
             'spesifikasi' => 'required',
         ]);
-        
+
 
         $input = $request->all();
-        
-        if($image = $request->file('gb_asset')){
+
+        if ($image = $request->file('gb_asset')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['gb_asset'] = "$profileImage";
-        }else{
+        } else {
             unset($input['image']);
         }
 
         $product->update($input);
-    
+
         return redirect()->route('products.index')
-                        ->with('success','Data updated successfully');
+            ->with('success', 'Data updated successfully');
     }
-    
+
     public function destroy(Product $product)
     {
         $product->delete();
-    
+
         return redirect()->route('products.index')
-                        ->with('success','Data deleted successfully');
+            ->with('success', 'Data deleted successfully');
     }
-    public function cari(Request $request){
+    public function cari(Request $request)
+    {
         $cari = $request->cari;
- 
-    		// mengambil data dari table pegawai sesuai pencarian data
-		$product = DB::table('products')
-		->where('name','like',"%".$cari."%")
-		->paginate();
- 
-    		// mengirim data pegawai ke view index
-		return view('index',['product' => $product]);   
+
+        // mengambil data dari table pegawai sesuai pencarian data
+        $product = DB::table('products')
+            ->where('name', 'like', "%" . $cari . "%")
+            ->paginate();
+
+        // mengirim data pegawai ke view index
+        return view('index', ['product' => $product]);
     }
-    public function export(Product $product) 
+    public function export(Product $product)
     {
         return Excel::download(new ProductExport, 'Asset_IT_Pelindo.xlsx');
     }
-    
+
+    public function listItem(Request $request, $kategori_id)
+    {
+        $data = DB::table('products')->where('kategori_id', $kategori_id)->get();
+        return response()->json($data);
+    }
 }
